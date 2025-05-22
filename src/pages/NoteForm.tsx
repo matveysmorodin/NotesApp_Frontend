@@ -75,21 +75,21 @@ const NoteForm: React.FC = () => {
                     </Card.Title>
                     <Form onSubmit={e => { e.preventDefault(); submit(); }}>
                         <Form.Group className="mb-3">
-                            <Form.Label>Title</Form.Label>
+                            <Form.Label>Заголовок</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Enter title"
+                                placeholder="Введите заголовок"
                                 value={title}
                                 onChange={e => setTitle(e.target.value)}
                             />
                         </Form.Group>
 
                         <Form.Group className="mb-3">
-                            <Form.Label>Content</Form.Label>
+                            <Form.Label>Текст</Form.Label>
                             <Form.Control
                                 as="textarea"
                                 rows={4}
-                                placeholder="Enter content"
+                                placeholder="Введите текст"
                                 value={content}
                                 onChange={e => setContent(e.target.value)}
                             />
@@ -98,14 +98,14 @@ const NoteForm: React.FC = () => {
                         <Form.Group className="mb-3">
                             <Form.Check
                                 type="checkbox"
-                                label="Completed"
+                                label="Выполнено"
                                 checked={isDone}
                                 onChange={e => setIsDone(e.target.checked)}
                             />
                         </Form.Group>
 
                         <Form.Group className="mb-3">
-                            <Form.Label>Category</Form.Label>
+                            <Form.Label>Категории</Form.Label>
                             <Form.Select
                                 value={categoryId ?? ''}
                                 onChange={e => {
@@ -113,7 +113,7 @@ const NoteForm: React.FC = () => {
                                     setCategoryId(val ? Number(val) : undefined);
                                 }}
                             >
-                                <option value="">-- Select category --</option>
+                                <option value="">-- Выбрать категории --</option>
                                 {categories.map(c => (
                                     <option key={c.id} value={c.id}>
                                         {c.name}
@@ -123,7 +123,7 @@ const NoteForm: React.FC = () => {
                         </Form.Group>
 
                         <Form.Group className="mb-4">
-                            <Form.Label>Tags</Form.Label>
+                            <Form.Label>Теги</Form.Label>
                             <div>
                                 {tags.map(t => (
                                     <Form.Check
@@ -148,12 +148,12 @@ const NoteForm: React.FC = () => {
                         <Row>
                             <Col xs="auto">
                                 <Button type="submit" variant="dark">
-                                    Save
+                                    Сохранить
                                 </Button>
                             </Col>
                             <Col xs="auto">
                                 <Button variant="outline-secondary" onClick={() => navigate(-1)}>
-                                    Cancel
+                                    Отмена
                                 </Button>
                             </Col>
                         </Row>

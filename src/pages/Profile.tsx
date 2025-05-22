@@ -21,8 +21,8 @@ const Profile: React.FC = () => {
     return (
         <Container className="mt-4">
             <Card className="shadow-sm bg-light p-4">
-                <h2 className="text-secondary mb-3">Profile</h2>
-                <p><strong>Username:</strong> {user.username}</p>
+                <h2 className="text-secondary mb-3">Профиль</h2>
+                <p><strong>Имя профиля: </strong> {user.username}</p>
                 <p><strong>Email:</strong> {user.email}</p>
             </Card>
         </Container>

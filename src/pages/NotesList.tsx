@@ -31,6 +31,7 @@ const NotesList: React.FC = () => {
         fetchNotes();
     }, [search, showCompleted, showPending]);
 
+
     const getCategory = (id?: number) => categories.find(c => c.id === id);
     const getTag = (id: number) => tags.find(t => t.id === id);
 
@@ -43,13 +44,13 @@ const NotesList: React.FC = () => {
                     <InputGroup>
                         <Form.Control
                             type="text"
-                            placeholder="Search notes..."
+                            placeholder="Поиск заметки..."
                             value={search}
                             onChange={e => setSearch(e.target.value)}
                             style={{ backgroundColor: '#f1f3f5', borderColor: '#ced4da', color: '#495057' }}
                         />
                         <Button variant="outline-secondary" onClick={() => setSearch('')}>
-                            Clear
+                            Очистить
                         </Button>
                     </InputGroup>
                 </Col>
@@ -57,7 +58,7 @@ const NotesList: React.FC = () => {
                     <Form.Check
                         type="checkbox"
                         id="showCompleted"
-                        label="Show Completed"
+                        label="Показать завершенные"
                         checked={showCompleted}
                         onChange={() => setShowCompleted(prev => !prev)}
                         className="text-secondary"
@@ -65,7 +66,7 @@ const NotesList: React.FC = () => {
                     <Form.Check
                         type="checkbox"
                         id="showPending"
-                        label="Show Pending"
+                        label="Показать невыполненные"
                         checked={showPending}
                         onChange={() => setShowPending(prev => !prev)}
                         className="text-secondary"
@@ -75,16 +76,18 @@ const NotesList: React.FC = () => {
 
             <div className="mb-4 text-end">
                 <Link to="/notes/new" className="btn btn-outline-secondary">
-                    New Note
+                    Новая заметка
                 </Link>
             </div>
 
             {notes.length === 0 ? (
-                <p className="text-muted">No notes found.</p>
+                <p className="text-muted">Заметок не найдено.</p>
             ) : (
                 <Row xs={1} md={2} className="g-3">
                     {notes.map(n => {
                         const category = getCategory(n.categoryId);
+                        const updatedAtUtcString = n.updatedAt + 'Z';
+                        const date = new Date(updatedAtUtcString);
                         return (
                             <Col key={n.id}>
                                 <Card
@@ -144,11 +147,23 @@ const NotesList: React.FC = () => {
                                                 })}
                                             </>
                                         )}
+                                        <Card.Text className="text-end text-muted" style={{ fontSize: '0.85rem' }}>
+                                            {new Date(date).toLocaleString('ru-RU', {
+                                                timeZone: 'Europe/Moscow',
+                                                hour: '2-digit',
+                                                minute: '2-digit',
+                                                day: '2-digit',
+                                                month: '2-digit',
+                                                year: 'numeric',
+                                            })}
+                                        </Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </Col>
                         );
                     })}
+
                 </Row>
             )}
         </Container>

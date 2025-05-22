@@ -13,21 +13,22 @@ const AppNavbar: React.FC = () => {
                 <Navbar.Toggle aria-controls="navbar-nav" />
                 <Navbar.Collapse id="navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link as={Link} to="/categories">Categories</Nav.Link>
-                        <Nav.Link as={Link} to="/tags">Tags</Nav.Link>
+                        <Nav.Link as={Link} to="/categories">Категории</Nav.Link>
+                        <Nav.Link as={Link} to="/tags">Теги</Nav.Link>
+                        <Nav.Link as={Link} to="/gallery">Галерея</Nav.Link>
                     </Nav>
                     <Nav>
                         {user ? (
                             <>
                                 <Nav.Link as={Link} to="/profile">{user.username}</Nav.Link>
                                 <Button variant="outline-secondary" size="sm" onClick={logout}>
-                                    Logout
+                                    Выход
                                 </Button>
                             </>
                         ) : (
                             <>
-                                <Nav.Link as={Link} to="/login">Login</Nav.Link>
-                                <Nav.Link as={Link} to="/register">Register</Nav.Link>
+                                <Nav.Link as={Link} to="/login">Логин</Nav.Link>
+                                <Nav.Link as={Link} to="/register">Зарегестрироваться</Nav.Link>
                             </>
                         )}
                     </Nav>

@@ -21,15 +21,15 @@ const Register: React.FC = () => {
     return (
         <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
             <Card className="p-4 shadow-sm" style={{ minWidth: '300px', backgroundColor: '#f8f9fa' }}>
-                <h3 className="mb-3 text-center text-secondary">Register</h3>
+                <h3 className="mb-3 text-center text-secondary">Регистрация</h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formUsername" className="mb-3">
-                        <Form.Label className="text-muted">Username</Form.Label>
+                        <Form.Label className="text-muted">Логин</Form.Label>
                         <Form.Control
                             type="text"
                             value={username}
                             onChange={e => setUsername(e.target.value)}
-                            placeholder="Enter username"
+                            placeholder="Введите логин"
                         />
                     </Form.Group>
 
@@ -39,22 +39,22 @@ const Register: React.FC = () => {
                             type="email"
                             value={email}
                             onChange={e => setEmail(e.target.value)}
-                            placeholder="Enter email"
+                            placeholder="Введите email"
                         />
                     </Form.Group>
 
                     <Form.Group controlId="formPassword" className="mb-4">
-                        <Form.Label className="text-muted">Password</Form.Label>
+                        <Form.Label className="text-muted">Пароль</Form.Label>
                         <Form.Control
                             type="password"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
-                            placeholder="Enter password"
+                            placeholder="Введите пароль"
                         />
                     </Form.Group>
 
                     <Button variant="dark" type="submit" className="w-100">
-                        Register
+                        Зарегестрироваться
                     </Button>
                 </Form>
             </Card>

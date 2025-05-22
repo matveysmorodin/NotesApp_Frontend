@@ -34,3 +34,16 @@ export const TagApi = {
 export const HistoryApi = {
     getByNote: (noteId: number) => API.get(`/api/history/${noteId}`)
 };
+export const GalleryApi = {
+    upload: (file: File) => {
+        const formData = new FormData();
+        formData.append("file", file);
+        return API.post("/api/gallery/upload", formData, {
+            headers: { "Content-Type": "multipart/form-data" }
+        });
+    },
+    getAll: () => API.get("/api/gallery/user"),
+    deletePhoto: (id: number) => API.delete(`/api/gallery/${id}`),
+    renamePhoto: (id: number, newFileName: string) =>
+        API.put(`/api/gallery/${id}/rename`, { newFileName }),
+};

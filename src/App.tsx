@@ -12,6 +12,8 @@ import NoteDetail from './pages/NoteDetail';
 import Categories from './pages/Categories';
 import Tags from './pages/Tags';
 import History from './pages/History';
+import Gallery from './pages/Gallery';
+
 
 const App: React.FC = () => (
     <AuthProvider>
@@ -69,6 +71,12 @@ const App: React.FC = () => (
                         <History />
                     </ProtectedRoute>
                 } />
+                <Route path="/gallery" element={
+                    <ProtectedRoute>
+                        <Gallery />
+                    </ProtectedRoute>
+                } />
+
             </Routes>
         </div>
     </AuthProvider>

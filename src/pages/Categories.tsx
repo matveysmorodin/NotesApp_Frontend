@@ -34,7 +34,7 @@ const Categories: React.FC = () => {
 
     return (
         <Container className="mt-4">
-            <h2 className="mb-4 text-secondary">Categories</h2>
+            <h2 className="mb-4 text-secondary">Категории</h2>
 
             <Card className="mb-4 shadow-sm">
                 <Card.Body>
@@ -44,7 +44,7 @@ const Categories: React.FC = () => {
                                 type="text"
                                 value={name}
                                 onChange={e => setName(e.target.value)}
-                                placeholder="Category name"
+                                placeholder="Название категории"
                             />
                         </Col>
                         <Col md={2}>
@@ -56,7 +56,7 @@ const Categories: React.FC = () => {
                         </Col>
                         <Col md={3}>
                             <Button onClick={add} variant="primary">
-                                Add
+                                Добавить
                             </Button>
                         </Col>
                     </Row>
@@ -88,7 +88,7 @@ const Categories: React.FC = () => {
                             size="sm"
                             onClick={() => del(c.id)}
                         >
-                            Delete
+                            Удалить
                         </Button>
                     </ListGroup.Item>
                 ))}

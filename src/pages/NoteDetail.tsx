@@ -63,7 +63,7 @@ const NoteDetail: React.FC = () => {
 
                     <Form.Check
                         type="checkbox"
-                        label={isDone ? 'Completed' : 'Pending'}
+                        label={isDone ? 'Выполнено' : 'Не выполнено'}
                         checked={isDone}
                         onChange={toggleDone}
                         className="mb-4"
@@ -72,12 +72,12 @@ const NoteDetail: React.FC = () => {
                     <Row>
                         <Col xs="auto">
                             <Button variant="outline-secondary" onClick={() => navigate(-1)}>
-                                Back
+                                Назад
                             </Button>
                         </Col>
                         <Col xs="auto">
                             <Link to={`/notes/${note.id}/edit`}>
-                                <Button variant="dark">Edit</Button>
+                                <Button variant="dark">Редактировать</Button>
                             </Link>
                         </Col>
                     </Row>

@@ -25,7 +25,7 @@ const Tags: React.FC = () => {
     return (
         <Container className="p-4">
             <Card className="p-3 shadow-sm" style={{ backgroundColor: '#f8f9fa', maxWidth: 600, margin: 'auto' }}>
-                <h1 className="mb-4 text-secondary">Tags</h1>
+                <h1 className="mb-4 text-secondary">Теги</h1>
                 <Form
                     onSubmit={e => {
                         e.preventDefault();
@@ -34,12 +34,12 @@ const Tags: React.FC = () => {
                     className="d-flex mb-3"
                 >
                     <Form.Control
-                        placeholder="New tag name"
+                        placeholder="Введите имя тега"
                         value={name}
                         onChange={e => setName(e.target.value)}
                     />
                     <Button variant="dark" type="submit" className="ms-2">
-                        Add
+                        Добавить
                     </Button>
                 </Form>
 
@@ -52,7 +52,7 @@ const Tags: React.FC = () => {
                         >
                             <span>{t.name}</span>
                             <Button variant="outline-danger" size="sm" onClick={() => del(t.id)}>
-                                Del
+                                Удалить
                             </Button>
                         </ListGroup.Item>
                     ))}
